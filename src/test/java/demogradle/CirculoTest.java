@@ -2,7 +2,8 @@ package demogradle;
 
 import junit.framework.TestCase;
 import org.junit.Assert;
-import org.junit.Test;
+//import org.junit.Test;
+import org.junit.jupiter.api.Test;
 
 public class CirculoTest extends TestCase {
 
@@ -19,38 +20,39 @@ public class CirculoTest extends TestCase {
         assertEquals(1.0, circulo.getRaio());
     }
 
-    @Test()
+    @Test
     public void testeDeConstrutorComRaioNegativo() {
         Assert.assertThrows(IllegalArgumentException.class, () -> new Circulo(-1.0));
     }
 
     @Test
-    public void circuloDeRaioUmTemAreaIgualAPI() {
+    public void circuloDeRaioUmTemAreaIgualAPi() {
         Circulo circulo = new Circulo(1.0);
-        assertEquals(3.141592653589793, circulo.calcularArea());
+        assertEquals(3.141592653589793, circulo.calcularArea(), 0.0001);
     }
 
     @Test
     public void circuloDeDoisEMeioUmTemAreaIgualDezenovePontoSeisTresQuatroEtc() {
         Circulo circulo = new Circulo(2.5);
-        assertEquals(19.634954085, circulo.calcularArea());
+        assertEquals(19.634954085, circulo.calcularArea(),0.0000001);
     }
 
     @Test
     public void circuloDeRaioUmTemPerimetro2Pi () {
         Circulo circulo = new Circulo(1.0);
-        assertEquals(6.283185307, circulo.calcularPerimetro());
+        assertEquals(6.283185307, circulo.calcularPerimetro(), 0.0000001);
     }
 
     @Test
     public void circuloDeRaioDoisEMeioTemPerimetroQuinzePontoSeteZeroSeteNoveEtc () {
-        Circulo circulo = new Circulo(1.0);
-        assertEquals(15.707963268, circulo.calcularPerimetro());
+        Circulo circulo = new Circulo(2.5);
+        assertEquals(15.707963268, circulo.calcularPerimetro(), 0.0000001);
     }
 
     @Test
     public void setaRaioParaUmNumeroPositivo() {
         Circulo circulo = new Circulo();
+        circulo.setRaio(1.0);
         assertEquals(1.0, circulo.getRaio());
     }
 
