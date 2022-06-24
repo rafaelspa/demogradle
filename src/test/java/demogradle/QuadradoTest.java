@@ -1,61 +1,85 @@
 package demogradle;
 
-import junit.framework.TestCase;
-import org.junit.Assert;
+import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
+import static org.junit.jupiter.api.Assertions.*;
 
-public class QuadradoTest extends TestCase {
 
-    @Test
-    public void construtorCriaInstanciaDeQuadrado() {
-        Quadrado quadrado = new Quadrado();
-        assertTrue(quadrado instanceof Quadrado);
+public class QuadradoTest {
+
+    Quadrado quadrado;
+    Quadrado quadradoDeLadoUm;
+
+    @BeforeEach
+    public void setUp() {
+        quadrado = new Quadrado();
+        quadradoDeLadoUm = new Quadrado(1.0);
     }
 
     @Test
-    public void contrutorCriaInstanciaDeQuadradoComLadoUm() {
-        Quadrado quadrado = new Quadrado(1.0);
-        assertTrue(quadrado instanceof Quadrado);
-        assertEquals(1.0, quadrado.getLado());
+    public void construirQuadradoCriaInstanciaDeQuadrado() {
+        // Arrange
+        // Act
+        // Assert
+        assertInstanceOf(Quadrado.class, quadrado);
     }
 
     @Test
-    public void construtorDeLadoNegativoRetornaIllegalArgumentException() {
-        Assert.assertThrows(
-                "O lado do quadrado deve ser maior que zero.",
-                IllegalArgumentException.class,
+    public void construirQuadradoDeLadoZeroRetornaIllegalArgumentException() {
+        // Arrange
+        // Act
+        // Assert
+        assertThrows(IllegalArgumentException.class,
                 () -> {
-                    Quadrado quadrado = new Quadrado(-1.0);
-                }
-        );
+                    Quadrado quadradoZero = new Quadrado(0);
+                });
+    }
+
+    @Test
+    public void construirQuadradoDeLadoNegativoRetornaIllegalArgumentException() {
+        // Arrange
+        // Act
+        // Assert
+        assertThrows(IllegalArgumentException.class,
+                () -> {
+                    Quadrado quadradoNegativo = new Quadrado(-1.0);
+                });
     }
 
     @Test
     public void areaDeQuadradoDeLadoUmEMeioRetornaDoisPontoDoisCinco() {
-        Quadrado quadrado = new Quadrado(1.5);
-        assertEquals(2.25, quadrado.calcularArea());
+        // Arrange
+        Quadrado quadradoUmEMeio = new Quadrado(1.5);
+        // Act
+        // Assert
+        assertEquals(2.25, quadradoUmEMeio.calcularArea());
     }
 
     @Test
     public void perimetroDeQuadradoDeLadoUmEMeioRetornaSeis() {
-        Quadrado quadrado = new Quadrado(1.5);
-        assertEquals(6.0, quadrado.calcularPerimetro());
+        // Arrange
+        Quadrado quadradoUmEMeio = new Quadrado(1.5);
+        // Act
+        // Assert
+        assertEquals(6.0, quadradoUmEMeio.calcularPerimetro());
     }
 
     @Test
     public void setarLadoDeQuadradoComValorPositivoRetornaOValor() {
-        Quadrado quadrado = new Quadrado();
+        // Arrange
+        // Act
         quadrado.setLado(1.0);
+        // Assert
         assertEquals(1.0, quadrado.getLado());
     }
 
     @Test
     public void setarLadoDeQuadradoComZeroRetornaIllegalArgumentException() {
-        Quadrado quadrado = new Quadrado();
-        Assert.assertThrows(
-                "O lado do quadrado deve ser maior que zero.",
-                IllegalArgumentException.class,
+        // Arrange
+        // Act
+        // Assert
+        assertThrows(IllegalArgumentException.class,
                 () -> {
                     quadrado.setLado(0);
                 }
@@ -64,24 +88,21 @@ public class QuadradoTest extends TestCase {
 
     @Test
     public void setarLadoDeQuadradoComValorNegativoRetornaIllegalArgumentException() {
-        Quadrado quadrado = new Quadrado();
-        Assert.assertThrows(
-                "O lado do quadrado deve ser maior que zero.",
-                IllegalArgumentException.class,
+        // Arrange
+        // Act
+        // Assert
+        assertThrows(IllegalArgumentException.class,
                 () -> {
                     quadrado.setLado(-1.0);
                 }
-        );
+                );
     }
 
     @Test
-    public void pegarLadoDeQuadradoDeLadoCincoRetornaCinco() {
-        Quadrado quadrado = new Quadrado(5.0);
-        assertEquals(5.0, quadrado.getLado());
+    public void pegarLadoDeQuadradoDeLadoUmRetornaUm() {
+        // Arrange
+        // Act
+        // Assert
+        assertEquals(1.0, quadradoDeLadoUm.getLado());
     }
-
-
-
-
-
 }

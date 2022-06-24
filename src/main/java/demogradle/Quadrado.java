@@ -2,6 +2,10 @@ package demogradle;
 
 // Fonte: https://replit.com/@jessica-sobral/tarefa-s17-18-01#Main.java
 
+import org.junit.jupiter.api.Test;
+
+import static org.junit.jupiter.api.Assertions.assertInstanceOf;
+
 public class Quadrado {
     private double lado;
 
@@ -31,4 +35,5 @@ public class Quadrado {
     public double getLado() {
         return lado;
     }
+
 }

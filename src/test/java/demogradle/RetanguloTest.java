@@ -52,8 +52,8 @@ class RetanguloTest {
     @Test
     public void setarBaseComValorPositivoModificaABaseDoRetanguloComOValor() {
         // Arrange
-        retangulo.setBase(1);
         // Act
+        retangulo.setBase(1);
         // Assert
         assertEquals(1, retangulo.getBase());
     }
@@ -83,8 +83,8 @@ class RetanguloTest {
     @Test
     public void setarAlturaComValorPositivoModificaAAlturaDoRetanguloComOValor() {
         // Arrange
-        retangulo.setAltura(2);
         // Act
+        retangulo.setAltura(2);
         // Assert
         assertEquals(2, retangulo.getAltura());
     }
